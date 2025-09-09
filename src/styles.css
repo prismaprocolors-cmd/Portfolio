@@ -1,32 +1,55 @@
 :root{
-  --bg:#0b0b0b;
-  --muted:#9aa0a6;
-  --accent:#e6b455;
-  --card:#111;
+  --bg: #000000; /* overall page background (black) */
+  --fg: #ffffff; /* main foreground (white) */
+  --muted: rgba(255,255,255,0.7); /* muted white on dark */
+  --accent: #ffd400; /* yellow accent */
+  --card: #000000; /* black card background */
+  --panel-bg: #ffffff; /* white panel background (hero, lightbox content) */
+  --panel-fg: #000000; /* black text on white panels */
+  --panel-muted: #6b6b6b; /* grey for subtitles on white panels */
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
+.body, body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--fg)}
 .container{max-width:1200px;margin:0 auto;padding:1.25rem}
 .header{border-bottom:1px solid rgba(255,255,255,0.04)}
 .header .container{display:flex;align-items:center;justify-content:space-between}
 .brand{margin:0;font-size:1.1rem;letter-spacing:1px}
-.header nav a{color:var(--muted);margin-left:1rem;text-decoration:none}
+.header nav a{color:var(--fg);margin-left:1rem;text-decoration:none}
 .hero{padding:4rem 0;border-bottom:1px solid rgba(255,255,255,0.03)}
 .hero-text h2{margin:0 0 .5rem;font-size:2rem}
 .hero-text p{margin:0;color:var(--muted)}
 .gallery h3{margin:1rem 0}
 .gallery.container{max-width:none;padding:0.5rem}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
-.card{background:var(--card);border:0;padding:0;cursor:pointer;text-align:left;overflow:hidden;position:relative}
+.card{background:transparent;border:0;padding:0;cursor:pointer;text-align:left;overflow:hidden;position:relative}
 .card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:filter .2s ease}
-.card .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.0);color:#fff;opacity:0;transition:opacity .2s ease, background .2s ease}
-.card:hover img{filter:brightness(0.6)}
+.card .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.0);color:var(--fg);opacity:0;transition:opacity .2s ease, background .2s ease}
+.card:hover img{filter:brightness(0.8)}
 .card:hover .overlay{opacity:1;background:rgba(0,0,0,0.25)}
 .card-meta{padding:.75rem;color:var(--muted)}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center}
-.lightbox-content{background:#0b0b0b;padding:1rem;max-width:90%;max-height:90%;overflow:auto}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center}
+.lightbox-content{background:var(--bg);padding:1rem;max-width:90%;max-height:90%;overflow:auto;color:var(--fg)}
 .lightbox-content img{max-width:100%;height:auto;display:block}
 .lightbox-meta{color:var(--muted);margin-top:.5rem}
-.close{margin-top:.5rem;padding:.4rem .6rem;background:var(--accent);border:0;color:#111;cursor:pointer}
-.footer{border-top:1px solid rgba(255,255,255,0.04);padding:1rem 0;margin-top:2rem}
+.close{margin-top:.5rem;padding:.4rem .6rem;background:var(--accent);border:0;color:var(--fg);cursor:pointer}
+.footer{border-top:1px solid rgba(0,0,0,0.06);padding:1rem 0;margin-top:2rem;background:var(--bg);color:var(--fg)}
 .footer .container{display:flex;justify-content:space-between;align-items:center}
+
+/* subtle pop + yellow hover for interactive text */
+.container a,
+.header nav a,
+.footer nav a,
+.card .overlay strong {
+  display: inline-block;
+  transition: color .15s ease, transform .12s ease, text-shadow .12s ease;
+  will-change: transform, color;
+}
+.container a:hover,
+.container a:focus,
+.header nav a:hover,
+.footer nav a:hover,
+.card .overlay strong:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+  text-shadow: 0 8px 18px rgba(255,212,0,0.12);
+}

@@ -4,8 +4,11 @@
 .lightbox { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,.6) }
 .lightbox img { max-width: 90vw; max-height: 80vh }
 
+.lightbox .lightbox-content { background: var(--panel-bg); color: var(--panel-fg); padding: 1rem; position: relative; z-index: 2 }
+.card-meta strong { color: var(--panel-fg) }
+.card .overlay strong { color: var(--accent) }
+
 .lightbox .lightbox-backdrop { position: absolute; inset:0; border:0; background: transparent; cursor:default }
-.lightbox .lightbox-content { position: relative; z-index: 2; }
 
 dialog.lightbox { padding: 0; border: 0; background: transparent }
 
