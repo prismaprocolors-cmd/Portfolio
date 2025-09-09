@@ -4,12 +4,138 @@
 .lightbox { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,.6) }
 .lightbox img { max-width: 90vw; max-height: 80vh }
 
-.lightbox .lightbox-content { background: var(--panel-bg); color: var(--panel-fg); padding: 1rem; position: relative; z-index: 2 }
+.lightbox .lightbox-content {
+	background: #111;
+	color: #fff;
+	padding: 2.2rem 2.5rem 1.7rem 2.5rem;
+	position: relative;
+	z-index: 2;
+	max-width: 700px;
+	max-height: 90vh;
+	font-family: inherit;
+	font-size: 1.09rem;
+	box-shadow: 0 8px 40px 0 rgba(0,0,0,0.32);
+	border-radius: 1.7rem;
+	border: 1.5px solid #222;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	transition: box-shadow .18s;
+}
 .card-meta strong { color: var(--panel-fg) }
 .card .overlay strong { color: var(--accent) }
 
 .lightbox .lightbox-backdrop { position: absolute; inset:0; border:0; background: transparent; cursor:default }
 
 dialog.lightbox { padding: 0; border: 0; background: transparent }
+
+.carousel {
+	width: 100%;
+	margin-bottom: 1rem;
+}
+.carousel-img-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.carousel-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	color: var(--accent);
+	cursor: pointer;
+	padding: 0.18rem 0.18rem;
+	border-radius: 0;
+	z-index: 2;
+	transition: color .15s, transform .12s;
+	outline: none;
+	box-shadow: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.carousel-arrow .arrow-icon {
+	display: block;
+	width: 1.8rem;
+	height: 1.8rem;
+}
+.carousel-arrow.left { left: 0.2rem; }
+.carousel-arrow.right { right: 0.2rem; }
+.carousel-arrow:hover, .carousel-arrow:focus {
+	color: #fff200;
+	transform: translateY(-50%) scale(1.18);
+}
+.carousel-img {
+	max-width: 480px;
+	max-height: 56vh;
+	border-radius: 1.1rem;
+	box-shadow: 0 2px 16px rgba(0,0,0,0.22);
+	margin: 0 2.2rem;
+	background: #222;
+}
+.carousel-indicator {
+	display: flex;
+	justify-content: center;
+	gap: 0.4rem;
+	margin-bottom: 1rem;
+}
+.dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #444;
+	display: inline-block;
+	transition: background .15s;
+}
+.dot.active {
+	background: var(--accent);
+}
+.youtube-link {
+	display: inline-block;
+	margin: 1.2rem auto 0 auto;
+	text-decoration: none;
+	transition: filter .15s;
+}
+.youtube-link .youtube-logo {
+	display: block;
+	width: 3.1rem;
+	height: 2.2rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 12px rgba(255,0,0,0.10);
+	transition: box-shadow .15s, filter .15s;
+}
+.youtube-link:hover .youtube-logo,
+.youtube-link:focus .youtube-logo {
+	box-shadow: 0 2px 18px rgba(255,0,0,0.22);
+	filter: brightness(1.1) drop-shadow(0 0 6px #ff0000cc);
+}
+.close-x {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.1rem;
+  font-weight: 400;
+  font-family: inherit, Arial, sans-serif;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.1rem 0.7rem;
+  border-radius: 50%;
+  transition: color .15s, box-shadow .15s, transform .13s;
+  z-index: 10;
+}
+.close-x:hover, .close-x:focus {
+  color: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  outline: none;
+  transform: scale(1.18);
+}
 
 
