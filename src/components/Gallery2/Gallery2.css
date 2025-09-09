@@ -4,6 +4,13 @@
 .lightbox { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,.6) }
 .lightbox img { max-width: 90vw; max-height: 80vh }
 
+/* Ensure Gallery2 uses grid independent of global .grid rules */
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px }
+.gallery-grid .card { margin: 0 }
+.gallery-grid .card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block }
+
+dialog.lightbox { padding: 0; border: 0; background: transparent }
+
 .lightbox .lightbox-content {
 	background: #111;
 	color: #fff;
@@ -27,8 +34,6 @@
 .card .overlay strong { color: var(--accent) }
 
 .lightbox .lightbox-backdrop { position: absolute; inset:0; border:0; background: transparent; cursor:default }
-
-dialog.lightbox { padding: 0; border: 0; background: transparent }
 
 .carousel {
 	width: 100%;

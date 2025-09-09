@@ -44,7 +44,7 @@ export default function Gallery2() {
   return (
     <section id="work" className="gallery container">
       <h3>Selected Work (Placeholder Test)</h3>
-      <div className="grid">
+      <div className="gallery-grid">
         {items.map(item => (
           <button key={item.id} className="card" onClick={() => setOpen(item)}>
             <img src={item.thumb} alt={item.title} />
