@@ -48,7 +48,6 @@ export default function Gallery2() {
   return (
     <section id="work" className="gallery container">
       <h3>Selected Work (Placeholder Test)</h3>
-      <button className="refresh" onClick={() => setVersion(v => v + 1)}>Refresh images</button>
       <div className="grid">
         {items.map(item => (
           <button key={item.id} className="card" onClick={() => setOpen(item)}>
