@@ -1,11 +1,22 @@
 import React, { useState } from 'react'
 
-const items = new Array(9).fill(0).map((_, i) => ({
-  id: i + 1,
-  title: `Project ${i + 1}`,
-  thumb: `/assets/thumb-${(i % 3) + 1}.jpg`,
-  full: `/assets/full-${(i % 3) + 1}.jpg`,
-}))
+// Previous local-assets implementation (kept for reference):
+// const items = new Array(9).fill(0).map((_, i) => ({
+//   id: i + 1,
+//   title: `Project ${i + 1}`,
+//   thumb: `/assets/thumb-${(i % 3) + 1}.jpg`,
+//   full: `/assets/full-${(i % 3) + 1}.jpg`,
+// }))
+
+const items = new Array(9).fill(0).map((_, i) => {
+  const seed = i + 1
+  return {
+    id: seed,
+    title: `Project ${seed}`,
+    thumb: `https://source.unsplash.com/random/1920x1080?sig=${seed}`,
+    full: `https://source.unsplash.com/random/1920x1080?sig=${seed}`,
+  }
+})
 
 export default function Gallery() {
   const [open, setOpen] = useState(null)

@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Gallery from './components/Gallery'
+import Gallery2 from './components/Gallery2'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Gallery />
+        <Gallery2 />
       </main>
       <Footer />
     </div>

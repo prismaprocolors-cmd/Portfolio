@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container">
-        <h1 className="brand">Your Name</h1>
+        <h1 className="brand">PrismaPro</h1>
         <nav>
           <a href="#work">Work</a>
           <a href="#about">About</a>
