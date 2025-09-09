@@ -1,12 +1,5 @@
-import React, { useState } from 'react'
-
-// Previous local-assets implementation (kept for reference):
-// const items = new Array(9).fill(0).map((_, i) => ({
-//   id: i + 1,
-//   title: `Project ${i + 1}`,
-//   thumb: `/assets/thumb-${(i % 3) + 1}.jpg`,
-//   full: `/assets/full-${(i % 3) + 1}.jpg`,
-// }))
+import React, { useState, useEffect } from 'react'
+import './Gallery.css'
 
 const items = new Array(9).fill(0).map((_, i) => {
   const seed = i + 1
@@ -20,6 +13,13 @@ const items = new Array(9).fill(0).map((_, i) => {
 
 export default function Gallery() {
   const [open, setOpen] = useState(null)
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = e => { if (e.key === 'Escape') setOpen(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
   return (
     <section id="work" className="gallery container">
       <h3>Selected Work</h3>
@@ -35,8 +35,9 @@ export default function Gallery() {
       </div>
 
       {open && (
-        <div className="lightbox" onClick={() => setOpen(null)}>
-          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+        <dialog className="lightbox" open aria-modal="true">
+          <button className="lightbox-backdrop" aria-label="Close" onClick={() => setOpen(null)} />
+          <div className="lightbox-content">
             <img src={open.full} alt={open.title} />
             <div className="lightbox-meta">
               <h4>{open.title}</h4>
@@ -44,7 +45,7 @@ export default function Gallery() {
             </div>
             <button className="close" onClick={() => setOpen(null)}>Close</button>
           </div>
-        </div>
+        </dialog>
       )}
     </section>
   )

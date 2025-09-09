@@ -6,7 +6,7 @@
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
-.container{max-width:1100px;margin:0 auto;padding:2rem}
+.container{max-width:1200px;margin:0 auto;padding:1.25rem}
 .header{border-bottom:1px solid rgba(255,255,255,0.04)}
 .header .container{display:flex;align-items:center;justify-content:space-between}
 .brand{margin:0;font-size:1.1rem;letter-spacing:1px}
@@ -15,10 +15,9 @@ body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:#fff}
 .hero-text h2{margin:0 0 .5rem;font-size:2rem}
 .hero-text p{margin:0;color:var(--muted)}
 .gallery h3{margin:1rem 0}
-.gallery.container{max-width:none;padding:1rem}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
-.card{background:var(--card);border:0;padding:0;cursor:pointer;text-align:left;overflow:hidden}
-.card{position:relative}
+.gallery.container{max-width:none;padding:0.5rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem}
+.card{background:var(--card);border:0;padding:0;cursor:pointer;text-align:left;overflow:hidden;position:relative}
 .card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:filter .2s ease}
 .card .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.0);color:#fff;opacity:0;transition:opacity .2s ease, background .2s ease}
 .card:hover img{filter:brightness(0.6)}
